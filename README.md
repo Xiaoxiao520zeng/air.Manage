@@ -3,6 +3,7 @@
 一个基于 Markdown 和 Git 的轻量工具，不包含网站或后台服务。
 
 新成员请先阅读[团队成员使用指南](docs/team-member-guide.md)，里面有克隆、填写、检查和提交步骤。
+负责人可参考[项目负责人使用指南](docs/project-lead-guide.md)；团队基本资料填写在 [`team/team-overview.md`](team/team-overview.md)。
 
 ## 记录类型
 
