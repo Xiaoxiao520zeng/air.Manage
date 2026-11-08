@@ -134,7 +134,7 @@ def record_files(kind: str) -> list[Path]:
     if kind == "weekly":
         return sorted((ROOT / "summaries" / "weekly").glob("[0-9][0-9][0-9][0-9]-W[0-9][0-9]/*.md"))
     if kind == "board":
-        return sorted((ROOT / "blackboard").glob("*.md"))
+        return sorted((ROOT / "blackboard").glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-*.md"))
     return record_files("daily") + record_files("weekly") + record_files("board")
 
 
