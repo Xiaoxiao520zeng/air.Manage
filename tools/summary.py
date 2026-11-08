@@ -14,6 +14,7 @@ MEMBERS_FILE = ROOT / "team" / "members.txt"
 SECTIONS = {
     "daily": ("今日完成", "遇到的问题", "明日计划"),
     "weekly": ("本周完成", "本周收获", "遇到的问题", "下周计划"),
+    "board": ("分享主题", "适用场景", "关键步骤", "示例或练习"),
 }
 
 
@@ -132,7 +133,9 @@ def record_files(kind: str) -> list[Path]:
         return sorted((ROOT / "summaries").glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/*.md"))
     if kind == "weekly":
         return sorted((ROOT / "summaries" / "weekly").glob("[0-9][0-9][0-9][0-9]-W[0-9][0-9]/*.md"))
-    return record_files("daily") + record_files("weekly")
+    if kind == "board":
+        return sorted((ROOT / "blackboard").glob("*.md"))
+    return record_files("daily") + record_files("weekly") + record_files("board")
 
 
 def validate_files(files: list[Path], kind: str) -> int:
@@ -157,6 +160,39 @@ def validate_files(files: list[Path], kind: str) -> int:
         return 1
     print(f"检查通过：{len(files)} 份总结")
     return 0
+
+
+def kind_for_path(path: Path) -> str | None:
+    parts = path.parts
+    if "blackboard" in parts:
+        return "board"
+    if "summaries" in parts:
+        if "weekly" in parts:
+            return "weekly"
+        return "daily"
+    return None
+
+
+def check_files(raw_paths: list[str]) -> int:
+    grouped: dict[str, list[Path]] = {}
+    for raw in raw_paths:
+        path = Path(raw)
+        if not path.is_absolute():
+            path = ROOT / path
+        kind = kind_for_path(path)
+        if kind is None or path.suffix != ".md" or not path.is_file():
+            continue
+        grouped.setdefault(kind, []).append(path)
+
+    if not grouped:
+        print("没有需要检查的总结文件")
+        return 0
+
+    errors = 0
+    for kind in ("daily", "weekly", "board"):
+        if kind in grouped:
+            errors += validate_files(sorted(grouped[kind]), kind)
+    return 1 if errors else 0
 
 
 def check_day(kind: str, day: date) -> int:
@@ -209,8 +245,9 @@ def main() -> int:
     new.add_argument("--date", help="日期 YYYY-MM-DD；默认今天，周总结按该日期所在周归档")
 
     verify = commands.add_parser("check", help="检查总结内容或成员提交情况")
-    verify.add_argument("kind", choices=("daily", "weekly", "all", "missing-daily", "missing-weekly"))
+    verify.add_argument("kind", choices=("daily", "weekly", "all", "files", "missing-daily", "missing-weekly"))
     verify.add_argument("--date", help="日期 YYYY-MM-DD；默认今天")
+    verify.add_argument("paths", nargs="*", help="kind=files 时，要检查的文件路径（相对仓库根目录）")
 
     args = parser.parse_args()
     try:
@@ -219,10 +256,12 @@ def main() -> int:
         parser.error(str(exc))
     if args.command == "new":
         return create(args.kind, args.name, day)
+    if args.kind == "files":
+        return check_files(args.paths)
     if args.kind == "all":
         errors = 0
         checked = 0
-        for kind in ("daily", "weekly"):
+        for kind in ("daily", "weekly", "board"):
             files = record_files(kind)
             if files:
                 checked += len(files)
