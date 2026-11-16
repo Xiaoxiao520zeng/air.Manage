@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>无人机实物俯视布局接线图</title>
+<style>
+  body{background:#ffffff;margin:0;padding:24px;font-family:"Microsoft YaHei",sans-serif;color:#222;}
+  h1{font-size:18px;margin:0 0 4px;}
+  .sub{color:#777;font-size:12px;margin-bottom:12px;}
+  svg{background:#fff;border:1px solid #ccc;}
+  text{font-family:"Microsoft YaHei",sans-serif;}
+</style>
+</head>
+<body>
+<h1>UAV-L-001 · 实物俯视布局接线图（REV A）</h1>
+<div class="sub">按器件真实外形与接口朝向绘制 · 上=机尾(REAR) 下=机头(FRONT) · 尺寸示意，不按严格比例 · 2026-11-16</div>
+
+<svg width="1200" height="1010" viewBox="0 0 1200 1010">
+<defs>
+  <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#666"/></marker>
+</defs>
+
+<!-- ============ 机架 ============ -->
+<rect x="80" y="70" width="1040" height="720" rx="18" fill="none" stroke="#999" stroke-width="2"/>
+<text x="90" y="92" font-size="12" fill="#888">机尾 REAR</text>
+<text x="90" y="784" font-size="12" fill="#888">机头 FRONT ▼</text>
+<!-- 机臂 -->
+<line x1="600" y1="430" x2="185" y2="215" stroke="#bbb" stroke-width="14" stroke-linecap="round"/>
+<line x1="600" y1="430" x2="1015" y2="215" stroke="#bbb" stroke-width="14" stroke-linecap="round"/>
+<line x1="600" y1="430" x2="185" y2="645" stroke="#bbb" stroke-width="14" stroke-linecap="round"/>
+<line x1="600" y1="430" x2="1015" y2="645" stroke="#bbb" stroke-width="14" stroke-linecap="round"/>
+
+<!-- ============ 电机 M2 左后 / M4 右后 / M3 左前 / M1 右前 ============ -->
+<g font-size="11">
+  <g><circle cx="185" cy="215" r="40" fill="#fafafa" stroke="#333" stroke-width="2"/>
+     <circle cx="185" cy="215" r="14" fill="none" stroke="#333"/>
+     <text x="185" y="180" text-anchor="middle" font-weight="bold">MOT2 · XING2 2506 1500KV</text>
+     <text x="185" y="272" text-anchor="middle" fill="#555">左后 CCW · 反桨 6×4R</text></g>
+  <g><circle cx="1015" cy="215" r="40" fill="#fafafa" stroke="#333" stroke-width="2"/>
+     <circle cx="1015" cy="215" r="14" fill="none" stroke="#333"/>
+     <text x="1015" y="180" text-anchor="middle" font-weight="bold">MOT4 · XING2 2506 1500KV</text>
+     <text x="1015" y="272" text-anchor="middle" fill="#555">右后 CW · 正桨 6×4</text></g>
+  <g><circle cx="185" cy="645" r="40" fill="#fafafa" stroke="#333" stroke-width="2"/>
+     <circle cx="185" cy="645" r="14" fill="none" stroke="#333"/>
+     <text x="185" y="610" text-anchor="middle" font-weight="bold">MOT3 · XING2 2506 1500KV</text>
+     <text x="185" y="702" text-anchor="middle" fill="#555">左前 CW · 正桨 6×4</text></g>
+  <g><circle cx="1015" cy="645" r="40" fill="#fafafa" stroke="#333" stroke-width="2"/>
+     <circle cx="1015" cy="645" r="14" fill="none" stroke="#333"/>
+     <text x="1015" y="610" text-anchor="middle" font-weight="bold">MOT1 · XING2 2506 1500KV</text>
+     <text x="1015" y="702" text-anchor="middle" fill="#555">右前 CCW · 反桨 6×4R</text></g>
+</g>
+
+<!-- ============ 电池 B1（机尾） ============ -->
+<g>
+  <rect x="455" y="95" width="180" height="80" rx="6" fill="#FFF8E1" stroke="#333" stroke-width="2"/>
+  <text x="545" y="118" text-anchor="middle" font-size="13" font-weight="bold">B1 · 6S LiPo 4600 mAh</text>
+  <text x="545" y="136" text-anchor="middle" font-size="10" fill="#555">75C · XT60 主输出</text>
+  <text x="545" y="152" text-anchor="middle" font-size="10" fill="#999">平衡头 JST-XH（未接）</text>
+  <rect x="635" y="120" width="14" height="14" fill="#E65100"/><text x="642" y="115" text-anchor="middle" font-size="9" fill="#E65100">XT60</text>
+  <rect x="635" y="140" width="14" height="14" fill="#555"/>
+</g>
+
+<!-- ============ A1 PMU 2 Lite ============ -->
+<g>
+  <rect x="700" y="100" width="130" height="80" rx="6" fill="#E8F5E9" stroke="#333" stroke-width="2"/>
+  <text x="765" y="122" text-anchor="middle" font-size="12" font-weight="bold">A1 · CUAV PMU 2 Lite</text>
+  <text x="765" y="138" text-anchor="middle" font-size="10" fill="#555">15V 版 · 20~70V 输入</text>
+  <text x="765" y="152" text-anchor="middle" font-size="10" fill="#555">15V / 6A · 130A 持续</text>
+  <rect x="693" y="115" width="7" height="14" fill="#333"/><text x="688" y="112" text-anchor="end" font-size="9">IN QS8</text>
+  <rect x="830" y="115" width="7" height="14" fill="#333"/><text x="842" y="112" font-size="9">BATT-OUT QS8</text>
+  <rect x="758" y="180" width="14" height="7" fill="#333"/><text x="775" y="190" font-size="9">8针线束</text>
+</g>
+
+<!-- ============ J1 主电源分流点 ============ -->
+<g>
+  <circle cx="866" cy="137" r="9" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="859" y1="130" x2="873" y2="144" stroke="#333" stroke-width="2"/>
+  <line x1="873" y1="130" x2="859" y2="144" stroke="#333" stroke-width="2"/>
+  <text x="866" y="122" text-anchor="middle" font-size="10" font-weight="bold">J1 主电源分流点</text>
+</g>
+
+<!-- ============ A4 BEC 12S-PRO ============ -->
+<g>
+  <rect x="900" y="100" width="120" height="75" rx="6" fill="#FFF3E0" stroke="#333" stroke-width="2"/>
+  <text x="960" y="120" text-anchor="middle" font-size="12" font-weight="bold">A4 · Matek BEC 12S-PRO</text>
+  <text x="960" y="136" text-anchor="middle" font-size="10" fill="#555">焊桥选 12V（默认5.2V!）</text>
+  <text x="960" y="150" text-anchor="middle" font-size="10" fill="#999">无反接保护 · 注意极性</text>
+  <rect x="893" y="115" width="7" height="14" fill="#333"/><text x="888" y="112" text-anchor="end" font-size="9">IN+/IN−</text>
+  <rect x="953" y="175" width="14" height="7" fill="#333"/><text x="972" y="184" font-size="9">OUT+12V/G</text>
+</g>
+
+<!-- ============ W01 电池→PMU ============ -->
+<line x1="649" y1="127" x2="693" y2="127" stroke="#D32F2F" stroke-width="2.5"/>
+<line x1="649" y1="147" x2="693" y2="147" stroke="#555" stroke-width="2.5"/>
+<text x="671" y="120" text-anchor="middle" font-size="9.5" font-weight="bold">W01</text>
+<text x="671" y="160" text-anchor="middle" font-size="8.5" fill="#666">QS8 · 7AWG</text>
+<!-- PMU→J1 -->
+<line x1="837" y1="122" x2="857" y2="122" stroke="#D32F2F" stroke-width="2.5"/>
+<line x1="837" y1="147" x2="857" y2="147" stroke="#555" stroke-width="2.5"/>
+<text x="847" y="115" text-anchor="middle" font-size="8.5" fill="#666">P+/P−</text>
+<!-- J1→BEC -->
+<line x1="875" y1="122" x2="893" y2="122" stroke="#D32F2F" stroke-width="2.5"/>
+<line x1="875" y1="147" x2="893" y2="147" stroke="#555" stroke-width="2.5"/>
+
+<!-- ============ J1→电调电源（沿机架左侧） ============ -->
+<polyline points="866,146 866,270 445,270 445,505 510,505" fill="none" stroke="#D32F2F" stroke-width="2.5"/>
+<polyline points="872,152 872,276 451,276 451,511 510,511" fill="none" stroke="#555" stroke-width="2.5"/>
+<text x="640" y="263" font-size="9.5" fill="#D32F2F" font-weight="bold">P+ / P−（PMU BATT-OUT → 电调 BAT±）</text>
+<text x="452" y="400" font-size="9" fill="#666" transform="rotate(90 452 400)">XT45 · 12AWG · C1 1000µF/35V 就近焊接</text>
+
+<!-- ============ J1→A6 相机稳压（沿机架右侧） ============ -->
+<polyline points="872,137 1060,137 1060,560" fill="none" stroke="#D32F2F" stroke-width="2.2"/>
+<polyline points="872,147 1052,147 1052,560" fill="none" stroke="#555" stroke-width="2.2"/>
+<text x="1096" y="360" font-size="9" fill="#666" transform="rotate(90 1096 360)">P+/P− → A6 VIN（6S 输入）</text>
+
+<!-- ============ BEC 12V → Jetson J16 ============ -->
+<polyline points="960,175 960,250 870,250 870,330" fill="none" stroke="#1565C0" stroke-width="2.2"/>
+<text x="902" y="243" font-size="9.5" fill="#1565C0" font-weight="bold">W05 · 12V DC → J16</text>
+<text x="902" y="256" font-size="8.5" fill="#666">J16 中心+ / 外壳GND</text>
+
+<!-- ============ A2 飞控 X25 EVO（上层） ============ -->
+<g>
+  <rect x="510" y="315" width="180" height="110" rx="6" fill="#E3F2FD" stroke="#1a5fb4" stroke-width="2.5"/>
+  <text x="600" y="338" text-anchor="middle" font-size="13" font-weight="bold">A2 · CUAV X25 EVO</text>
+  <text x="600" y="354" text-anchor="middle" font-size="9.5" fill="#555">飞控（上层板）</text>
+  <text x="600" y="372" text-anchor="middle" font-size="9" fill="#999">GPS&SAFETY / GPS2 / RC IN 未接</text>
+  <text x="600" y="386" text-anchor="middle" font-size="9" fill="#999">I2C / ADC / ETH / DEBUG 未接</text>
+  <text x="600" y="400" text-anchor="middle" font-size="9" fill="#999">USB-C / TF · M5-M16 留空</text>
+  <!-- 接口：上 POWER C1 -->
+  <rect x="645" y="308" width="30" height="7" fill="#1a5fb4"/>
+  <text x="660" y="303" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5fb4">POWER C1 (15V)</text>
+  <!-- 左：PWM M1-M4 -->
+  <rect x="503" y="360" width="7" height="40" fill="#2E7D32"/>
+  <text x="498" y="383" text-anchor="end" font-size="9" font-weight="bold" fill="#2E7D32">I/O PWM M1-M4</text>
+  <!-- 右：TELEM2 -->
+  <rect x="690" y="360" width="7" height="30" fill="#1565C0"/>
+  <text x="702" y="378" font-size="9" font-weight="bold" fill="#1565C0">TELEM2</text>
+  <!-- 底：CAN2 -->
+  <rect x="645" y="425" width="26" height="7" fill="#6A1B9A"/>
+  <text x="658" y="444" text-anchor="middle" font-size="9" font-weight="bold" fill="#6A1B9A">CAN2</text>
+</g>
+
+<!-- ============ A3 电调 Tekko32（下层，叠装） ============ -->
+<g>
+  <rect x="510" y="470" width="180" height="100" rx="6" fill="#ECEFF1" stroke="#333" stroke-width="2.5" stroke-dasharray="none"/>
+  <text x="600" y="492" text-anchor="middle" font-size="12" font-weight="bold">A3 · Tekko32 F4 50A</text>
+  <text x="600" y="507" text-anchor="middle" font-size="9.5" fill="#555">四合一电调（下层，与飞控叠装）</text>
+  <text x="600" y="524" text-anchor="middle" font-size="9" fill="#999">TLM / CURRENT / VBAT 留空</text>
+  <!-- 左：电源焊盘 -->
+  <rect x="503" y="500" width="7" height="18" fill="#333"/>
+  <text x="498" y="514" text-anchor="end" font-size="9" font-weight="bold">BAT+ / BAT−</text>
+  <!-- 上：SH1.0-9P -->
+  <rect x="528" y="463" width="34" height="7" fill="#2E7D32"/>
+  <text x="545" y="458" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">SH1.0-9P</text>
+  <!-- 底：U/V/W -->
+  <rect x="530" y="570" width="120" height="7" fill="#E65100"/>
+  <text x="590" y="590" text-anchor="middle" font-size="9" font-weight="bold" fill="#E65100">M1-M4 · U/V/W 三相焊盘</text>
+</g>
+
+<!-- ============ W02 PMU 8针 → POWER C1 ============ -->
+<polyline points="765,187 765,295 660,295 660,308" fill="none" stroke="#F9A825" stroke-width="2.4"/>
+<text x="790" y="288" font-size="9.5" font-weight="bold" fill="#B8860B">W02 · POWER C1</text>
+<text x="790" y="301" font-size="8.5" fill="#666">PMU 原装 8 针线束（15V·GND·CAN1）</text>
+
+<!-- ============ W03 电调信号 → PWM ============ -->
+<line x1="545" y1="463" x2="545" y2="430" stroke="#2E7D32" stroke-width="1.8"/>
+<line x1="553" y1="463" x2="553" y2="430" stroke="#2E7D32" stroke-width="1.8"/>
+<line x1="561" y1="463" x2="561" y2="430" stroke="#2E7D32" stroke-width="1.8"/>
+<line x1="569" y1="463" x2="569" y2="430" stroke="#2E7D32" stroke-width="1.8"/>
+<text x="580" y="447" font-size="9" font-weight="bold" fill="#2E7D32">W03 · DShot300</text>
+<text x="580" y="459" font-size="8" fill="#666">信号排5V不接飞控</text>
+
+<!-- ============ W04 TELEM2 ↔ Jetson J12 ============ -->
+<line x1="697" y1="368" x2="720" y2="368" stroke="#1565C0" stroke-width="2"/>
+<line x1="697" y1="380" x2="720" y2="380" stroke="#1565C0" stroke-width="2"/>
+<line x1="697" y1="388" x2="720" y2="388" stroke="#1565C0" stroke-width="2"/>
+<text x="708" y="358" text-anchor="middle" font-size="9" font-weight="bold" fill="#1565C0">W04</text>
+<text x="708" y="404" text-anchor="middle" font-size="8" fill="#666">TX/RX 交叉共地</text>
+<text x="708" y="415" text-anchor="middle" font-size="8" fill="#666">3.3V UART MAVLink</text>
+
+<!-- ============ A5 Jetson Orin NX ============ -->
+<g>
+  <rect x="720" y="330" width="160" height="95" rx="6" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2.5"/>
+  <text x="800" y="352" text-anchor="middle" font-size="12" font-weight="bold">A5 · Jetson Orin NX 16GB</text>
+  <text x="800" y="368" text-anchor="middle" font-size="9.5" fill="#555">P3767-0000 · P3768 参考板</text>
+  <text x="800" y="384" text-anchor="middle" font-size="9" fill="#999">起始功率模式 15W · 输入 9~19V</text>
+  <text x="800" y="398" text-anchor="middle" font-size="9" fill="#999">J12 40pin · J6/J7 USB-A · J14 USB-C</text>
+  <rect x="713" y="360" width="7" height="34" fill="#1565C0"/>
+  <text x="708" y="380" text-anchor="end" font-size="9" fill="#1565C0" font-weight="bold">J12-8TX / 10RX / 9GND</text>
+  <rect x="863" y="395" width="24" height="7" fill="#333"/>
+  <text x="876" y="416" text-anchor="middle" font-size="9" font-weight="bold">USB-A (J6/J7)</text>
+  <rect x="795" y="323" width="20" height="7" fill="#1565C0"/>
+  <text x="805" y="318" text-anchor="middle" font-size="9" font-weight="bold" fill="#1565C0">J16 (5.5×2.5)</text>
+</g>
+
+<!-- ============ W07 CAN2 → A8 ============ -->
+<line x1="658" y1="432" x2="658" y2="490" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="5,3"/>
+<line x1="668" y1="432" x2="668" y2="490" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="5,3"/>
+<line x1="668" y1="490" x2="720" y2="490" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="690" y="470" font-size="9" font-weight="bold" fill="#6A1B9A">W07 · CAN</text>
+<text x="690" y="482" font-size="8" fill="#666">双绞·两端120Ω</text>
+
+<!-- ============ A8 CAN扩展板 ============ -->
+<g>
+  <rect x="720" y="470" width="120" height="55" rx="6" fill="#fff" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="780" y="490" text-anchor="middle" font-size="11" font-weight="bold" fill="#6A1B9A">A8 · CAN 扩展板</text>
+  <text x="780" y="505" text-anchor="middle" font-size="8.5" fill="#999">预留 · 从任一 CAN2 插座接入</text>
+</g>
+
+<!-- ============ W06 Jetson USB → A7 ============ -->
+<polyline points="876,425 876,600 830,600 830,650" fill="none" stroke="#333" stroke-width="2.4"/>
+<text x="884" y="560" font-size="9.5" font-weight="bold">W06</text>
+<text x="884" y="573" font-size="8.5" fill="#666">USB 3.x A-C</text>
+
+<!-- ============ A6 相机稳压电源 ============ -->
+<g>
+  <rect x="900" y="560" width="110" height="70" rx="6" fill="#FFF8E1" stroke="#333" stroke-width="2"/>
+  <text x="955" y="582" text-anchor="middle" font-size="11.5" font-weight="bold">A6 · 相机稳压电源</text>
+  <text x="955" y="597" text-anchor="middle" font-size="9" fill="#555">6S 输入 → 5V / ≥3A</text>
+  <text x="955" y="611" text-anchor="middle" font-size="8.5" fill="#999">增配件</text>
+  <rect x="1047" y="580" width="7" height="12" fill="#333"/><text x="1058" y="580" font-size="8.5">VIN+ / VIN−</text>
+  <rect x="945" y="630" width="18" height="7" fill="#E65100"/><text x="936" y="645" text-anchor="end" font-size="8.5" fill="#E65100">5V / GND (USB-C)</text>
+</g>
+
+<!-- ============ A7 Y-adapter ============ -->
+<g>
+  <rect x="760" y="650" width="100" height="65" rx="6" fill="#E0F2F1" stroke="#00695C" stroke-width="2"/>
+  <text x="810" y="670" text-anchor="middle" font-size="11" font-weight="bold">A7 · Y-adapter</text>
+  <text x="810" y="684" text-anchor="middle" font-size="8.5" fill="#555">Luxonis · 供电注入</text>
+  <rect x="813" y="715" width="7" height="12" fill="#E65100"/><text x="824" y="728" font-size="8.5" fill="#E65100">PWR</text>
+  <rect x="800" y="643" width="20" height="7" fill="#333"/><text x="810" y="638" text-anchor="middle" font-size="8.5">DATA IN</text>
+  <rect x="753" y="675" width="7" height="16" fill="#00695C"/><text x="748" y="686" text-anchor="end" font-size="8.5" fill="#00695C">OUT</text>
+</g>
+
+<!-- ============ CAM1 OAK-D Pro ============ -->
+<g>
+  <rect x="500" y="690" width="130" height="70" rx="6" fill="#E8EAF6" stroke="#333" stroke-width="2"/>
+  <text x="565" y="713" text-anchor="middle" font-size="12" font-weight="bold">CAM1 · OAK-D Pro</text>
+  <text x="565" y="729" text-anchor="middle" font-size="9" fill="#555">单 Type-C（数据+供电）</text>
+  <rect x="630" y="715" width="7" height="16" fill="#333"/><text x="642" y="728" font-size="8.5">USB-C</text>
+  <text x="565" y="775" text-anchor="middle" font-size="9" fill="#888">装于前部云台/减震板</text>
+</g>
+
+<!-- ============ A6 5V → A7 PWR ============ -->
+<polyline points="945,634 945,700 880,700 880,695 820,695 820,715" fill="none" stroke="#E65100" stroke-width="2"/>
+<text x="900" y="712" font-size="9" font-weight="bold" fill="#E65100">5V / GND</text>
+
+<!-- ============ A7 OUT → CAM1 ============ -->
+<line x1="753" y1="683" x2="710" y2="683" stroke="#00695C" stroke-width="2.4"/>
+<polyline points="710,683 710,723 637,723" fill="none" stroke="#00695C" stroke-width="2.4"/>
+<text x="718" y="700" font-size="8.5" fill="#00695C">USB 3.x → 相机</text>
+
+<!-- ============ 电机三相线（沿机臂，白色描边避免交叉粘连） ============ -->
+<g stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.9">
+  <polyline points="530,570 530,645 232,645"/>
+  <polyline points="650,570 650,645 968,645"/>
+  <polyline points="510,515 190,222"/>
+  <polyline points="690,515 1010,222"/>
+</g>
+<g stroke="#E65100" stroke-width="3" fill="none" stroke-linecap="round">
+  <polyline points="530,570 530,645 232,645"/>
+  <polyline points="650,570 650,645 968,645"/>
+  <polyline points="510,515 190,222"/>
+  <polyline points="690,515 1010,222"/>
+</g>
+<g font-size="9.5" fill="#E65100" font-weight="bold">
+  <text x="380" y="636">M3 · U/V/W ×3（12AWG）</text>
+  <text x="770" y="636">M1 · U/V/W ×3</text>
+  <text x="270" y="360">M2 · U/V/W ×3</text>
+  <text x="810" y="390">M4 · U/V/W ×3</text>
+</g>
+
+<!-- ============ 图例 ============ -->
+<g font-size="10.5">
+  <rect x="80" y="806" width="1040" height="92" fill="#FAFAFA" stroke="#ccc"/>
+  <text x="96" y="828" font-weight="bold" fill="#333">图例：</text>
+  <line x1="140" y1="824" x2="180" y2="824" stroke="#D32F2F" stroke-width="2.5"/><text x="186" y="828">电源正 P+</text>
+  <line x1="266" y1="824" x2="306" y2="824" stroke="#555" stroke-width="2.5"/><text x="312" y="828">电源负/地</text>
+  <line x1="392" y1="824" x2="432" y2="824" stroke="#E65100" stroke-width="3"/><text x="438" y="828">电机相线 U/V/W</text>
+  <line x1="566" y1="824" x2="606" y2="824" stroke="#2E7D32" stroke-width="2"/><text x="612" y="828">PWM 信号</text>
+  <line x1="700" y1="824" x2="740" y2="824" stroke="#1565C0" stroke-width="2"/><text x="746" y="828">UART/12V</text>
+  <line x1="836" y1="824" x2="876" y2="824" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="5,3"/><text x="882" y="828">CAN（预留虚线）</text>
+  <line x1="1006" y1="824" x2="1046" y2="824" stroke="#333" stroke-width="2.4"/><text x="1052" y="828">USB</text>
+  <text x="96" y="850">W01 电池→PMU（QS8·7AWG）　W02 PMU→POWER C1　W03 电调→PWM（DShot300）　W04 TELEM2↔J12（交叉共地）</text>
+  <text x="96" y="868">W05 BEC 12V→J16　W06 USB→相机链路　W07 CAN2→扩展板　P+/P−→电调 BAT± 与 A6 VIN　C1 1000µF/35V 跨电调电源焊盘</text>
+  <text x="96" y="890" fill="#B71C1C">⚠ 关键核验：① BEC 焊桥默认 5.2V，须改焊 12V 档；② 6S 满油门压降可能跌破 PMU 20V 下限，台架实测 ≥21V；③ 上电先不装桨、串烟雾报警器。</text>
+</g>
+
+<!-- ============ 标题栏 ============ -->
+<g font-size="11">
+  <rect x="80" y="906" width="1040" height="34" fill="#F5F5F5" stroke="#ccc"/>
+  <text x="96" y="928" font-weight="bold">图号 UAV-L-001 · REV A</text>
+  <text x="300" y="928">名称：四旋翼实物俯视布局接线图</text>
+  <text x="580" y="928">器件：B1 A1 J1 A4 C1 A3 A2 A5 MOT1-4 A8 A6 A7 CAM1</text>
+  <text x="1000" y="928" fill="#666">2026-11-16 · 比例示意</text>
+</g>
+</svg>
+</body>
+</html>
