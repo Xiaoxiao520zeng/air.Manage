@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>四旋翼整机接线原理图</title>
+<style>
+  body{background:#fff;margin:0;padding:16px;font-family:"Microsoft YaHei",sans-serif}
+  svg{max-width:100%;height:auto}
+  .bx{fill:#fff;stroke:#333;stroke-width:1.3}
+  .sock{fill:#fff;stroke:#888;stroke-width:0.9}
+  .pin{stroke:#666;stroke-width:1}
+  .wg{stroke:#009944;stroke-width:1.4;fill:none}
+  .wr{stroke:#d02020;stroke-width:1.6;fill:none}
+  .wk{stroke:#333;stroke-width:1.6;fill:none}
+  .wb{stroke:#1f6feb;stroke-width:1.5;fill:none}
+  .dash{stroke-dasharray:6 4}
+  .t1{font-size:13px;font-weight:600;fill:#111}
+  .t2{font-size:12px;fill:#222}
+  .t3{font-size:11px;fill:#666}
+  .tl{font-size:11px;fill:#333}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1500 1030" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1500" height="1030" fill="#ffffff"/>
+  <text class="t1" x="750" y="28" text-anchor="middle" style="font-size:15px">四旋翼整机接线原理图（接口丝印按实物）</text>
+
+  <!-- 图例 -->
+  <line x1="60" y1="58" x2="90" y2="58" class="wr"/><text class="t3" x="96" y="58" dominant-baseline="central">电源正极</text>
+  <line x1="170" y1="58" x2="200" y2="58" class="wk"/><text class="t3" x="206" y="58" dominant-baseline="central">GND</text>
+  <line x1="260" y1="58" x2="290" y2="58" class="wg"/><text class="t3" x="296" y="58" dominant-baseline="central">信号/传感</text>
+  <line x1="370" y1="58" x2="400" y2="58" class="wb"/><text class="t3" x="406" y="58" dominant-baseline="central">MAVLink 串口</text>
+  <line x1="500" y1="58" x2="530" y2="58" class="wg dash"/><text class="t3" x="536" y="58" dominant-baseline="central">可选 / 未用</text>
+
+  <!-- ============ 电池 ============ -->
+  <rect x="80" y="100" width="140" height="80" class="bx" rx="4"/>
+  <text class="t1" x="150" y="130" text-anchor="middle">6S 4600mAh 75C</text>
+  <text class="t3" x="150" y="152" text-anchor="middle">锂电池 · XT60 放电口</text>
+  <line x1="130" y1="180" x2="130" y2="190" class="pin"/><text class="tl" x="122" y="200" text-anchor="end">+</text>
+  <line x1="200" y1="180" x2="200" y2="190" class="pin"/><text class="tl" x="208" y="200">−</text>
+
+  <!-- ============ 电调 ============ -->
+  <rect x="60" y="320" width="360" height="240" class="bx" rx="4"/>
+  <text class="t1" x="240" y="345" text-anchor="middle">Tekko32 F4 50A 四合一电调</text>
+  <text class="tl" x="130" y="368" text-anchor="middle">IN+（XT45焊盘）</text>
+  <text class="tl" x="210" y="368" text-anchor="middle">IN−</text>
+  <rect x="330" y="380" width="72" height="110" class="sock" rx="3"/>
+  <text class="tl" x="366" y="398" text-anchor="middle">SH1.0-9P</text>
+  <text class="tl" x="366" y="416" text-anchor="middle">信号座</text>
+  <text class="t3" x="366" y="434" text-anchor="middle">M1-M4 · CUR</text>
+  <text class="t3" x="366" y="450" text-anchor="middle">5V · GND</text>
+  <text class="t3" x="366" y="466" text-anchor="middle">TX · RX</text>
+  <line x1="402" y1="430" x2="420" y2="430" class="pin"/>
+  <text class="tl" x="100" y="548" text-anchor="middle">M1</text>
+  <text class="tl" x="190" y="548" text-anchor="middle">M2</text>
+  <text class="tl" x="280" y="548" text-anchor="middle">M3</text>
+  <text class="tl" x="370" y="548" text-anchor="middle">M4</text>
+  <text class="t3" x="240" y="530" text-anchor="middle">相线焊盘（每相3点）</text>
+  <line x1="100" y1="560" x2="100" y2="568" class="pin"/>
+  <line x1="190" y1="560" x2="190" y2="568" class="pin"/>
+  <line x1="280" y1="560" x2="280" y2="568" class="pin"/>
+  <line x1="370" y1="560" x2="370" y2="568" class="pin"/>
+
+  <!-- ============ 电机 ============ -->
+  <rect x="60" y="660" width="400" height="80" class="bx" rx="4"/>
+  <text class="t1" x="260" y="708" text-anchor="middle">4× 电机 XING2 2506 1500KV</text>
+  <line x1="100" y1="656" x2="100" y2="660" class="pin"/><text class="tl" x="100" y="676" text-anchor="middle">M1</text>
+  <line x1="190" y1="656" x2="190" y2="660" class="pin"/><text class="tl" x="190" y="676" text-anchor="middle">M2</text>
+  <line x1="280" y1="656" x2="280" y2="660" class="pin"/><text class="tl" x="280" y="676" text-anchor="middle">M3</text>
+  <line x1="370" y1="656" x2="370" y2="660" class="pin"/><text class="tl" x="370" y="676" text-anchor="middle">M4</text>
+  <line x1="100" y1="568" x2="100" y2="656" class="wg"/>
+  <line x1="190" y1="568" x2="190" y2="656" class="wg"/>
+  <line x1="280" y1="568" x2="280" y2="656" class="wg"/>
+  <line x1="370" y1="568" x2="370" y2="656" class="wg"/>
+
+  <!-- ============ 飞控 ============ -->
+  <rect x="520" y="220" width="280" height="380" class="bx" rx="4"/>
+  <text class="t1" x="660" y="245" text-anchor="middle">Pixhawk 2.4.8 飞控</text>
+  <!-- 顶边排针 -->
+  <line x1="560" y1="220" x2="560" y2="212" class="pin"/>
+  <line x1="610" y1="220" x2="610" y2="212" class="pin"/>
+  <line x1="630" y1="220" x2="630" y2="212" class="pin"/>
+  <line x1="650" y1="220" x2="650" y2="212" class="pin"/>
+  <line x1="670" y1="220" x2="670" y2="212" class="pin"/>
+  <line x1="770" y1="220" x2="770" y2="212" class="pin"/>
+  <text class="tl" x="560" y="240" text-anchor="middle">SBUS/DSM</text>
+  <text class="tl" x="640" y="240" text-anchor="middle">I/O PWM OUT（MAIN 1–8）</text>
+  <text class="t3" x="640" y="255" text-anchor="middle">排针 S / + / −　接1–4通道</text>
+  <text class="tl" x="770" y="240" text-anchor="middle">FMU PWM OUT</text>
+  <text class="t3" x="770" y="255" text-anchor="middle">（AUX1-6 未用）</text>
+  <!-- 面板插座：SWITCH / BUZZER / SERIAL 4/5 -->
+  <rect x="545" y="270" width="70" height="22" class="sock" rx="3"/><text class="tl" x="580" y="281" text-anchor="middle">SWITCH</text>
+  <rect x="625" y="270" width="70" height="22" class="sock" rx="3"/><text class="tl" x="660" y="281" text-anchor="middle">BUZZER</text>
+  <rect x="705" y="270" width="80" height="22" class="sock" rx="3"/><text class="tl" x="745" y="281" text-anchor="middle">SERIAL 4/5</text>
+  <!-- 面板插座：TELEM1 / TELEM2 / ADC 3.3V -->
+  <rect x="545" y="310" width="70" height="22" class="sock" rx="3"/><text class="tl" x="580" y="321" text-anchor="middle">TELEM1</text>
+  <rect x="625" y="310" width="70" height="22" class="sock" rx="3"/><text class="tl" x="660" y="321" text-anchor="middle">TELEM2</text>
+  <rect x="705" y="310" width="80" height="22" class="sock" rx="3"/><text class="tl" x="745" y="321" text-anchor="middle">ADC 3.3V</text>
+  <!-- 面板插座：I2C / CAN / GPS -->
+  <rect x="545" y="370" width="70" height="22" class="sock" rx="3"/><text class="tl" x="580" y="381" text-anchor="middle">I2C</text>
+  <rect x="625" y="370" width="70" height="22" class="sock" rx="3"/><text class="tl" x="660" y="381" text-anchor="middle">CAN</text>
+  <rect x="705" y="370" width="80" height="22" class="sock" rx="3"/><text class="tl" x="745" y="381" text-anchor="middle">GPS</text>
+  <!-- 底边 -->
+  <line x1="580" y1="600" x2="580" y2="608" class="pin"/><text class="tl" x="580" y="590" text-anchor="middle">PPM</text>
+  <line x1="640" y1="600" x2="640" y2="608" class="pin"/><text class="tl" x="628" y="590" text-anchor="middle">+</text>
+  <line x1="680" y1="600" x2="680" y2="608" class="pin"/><text class="tl" x="692" y="590" text-anchor="middle">−</text>
+  <text class="tl" x="660" y="572" text-anchor="middle">POWER（2S-6S 直连电池）</text>
+  <line x1="760" y1="600" x2="760" y2="608" class="pin"/><text class="tl" x="760" y="590" text-anchor="middle">USB</text>
+  <!-- 面板内部引线 -->
+  <polyline points="660,332 660,345 800,345" class="wb" fill="none"/>
+  <polyline points="660,370 660,362 800,362" class="wg dash" fill="none"/>
+  <polyline points="745,392 745,588 800,588" class="wg" fill="none"/>
+
+  <!-- ============ BEC ============ -->
+  <rect x="880" y="100" width="260" height="160" class="bx" rx="4"/>
+  <text class="t1" x="1010" y="122" text-anchor="middle">Matek BEC 12S-PRO</text>
+  <rect x="950" y="105" width="100" height="0" class="sock"/>
+  <rect x="950" y="132" width="100" height="20" class="sock" rx="3"/>
+  <text class="tl" x="1000" y="142" text-anchor="middle">12V/8V 跳线座</text>
+  <text class="tl" x="1060" y="142">→ 本机选 5V</text>
+  <line x1="880" y1="180" x2="872" y2="180" class="pin"/><text class="tl" x="892" y="183">IN+</text>
+  <line x1="880" y1="220" x2="872" y2="220" class="pin"/><text class="tl" x="892" y="223">IN−</text>
+  <line x1="1140" y1="180" x2="1148" y2="180" class="pin"/><text class="tl" x="1128" y="183" text-anchor="end">OUT</text>
+  <line x1="1140" y1="220" x2="1148" y2="220" class="pin"/><text class="tl" x="1128" y="223" text-anchor="end">G</text>
+  <text class="t3" x="1010" y="240" text-anchor="middle">输入 9-55V（3-12S）· 输出 5/8/12V 可选</text>
+
+  <!-- ============ AllSpark 2 ============ -->
+  <rect x="1180" y="320" width="240" height="240" class="bx" rx="4"/>
+  <text class="t1" x="1300" y="345" text-anchor="middle">AllSpark 2 机载计算机</text>
+  <text class="t3" x="1300" y="363" text-anchor="middle">Jetson Orin NX 16G</text>
+  <line x1="1240" y1="320" x2="1240" y2="312" class="pin"/><text class="tl" x="1240" y="380" text-anchor="middle">UART1</text>
+  <line x1="1320" y1="320" x2="1320" y2="312" class="pin"/><text class="tl" x="1320" y="380" text-anchor="middle">CAN</text>
+  <text class="t3" x="1300" y="398" text-anchor="middle">顶边其余：GPIO/UART0/UART2/SPI/I2C（GH1.25，未用）</text>
+  <line x1="1180" y1="430" x2="1172" y2="430" class="pin"/><text class="tl" x="1190" y="434">XT30+</text>
+  <line x1="1180" y1="470" x2="1172" y2="470" class="pin"/><text class="tl" x="1190" y="474">XT30−</text>
+  <text class="t3" x="1190" y="455">电源输入 10~26V</text>
+  <line x1="1420" y1="410" x2="1428" y2="410" class="pin"/>
+  <line x1="1420" y1="440" x2="1428" y2="440" class="pin"/>
+  <text class="t3" x="1412" y="428" text-anchor="end">以太网×2（未用）</text>
+  <line x1="1200" y1="560" x2="1200" y2="568" class="pin"/><text class="tl" x="1200" y="552" text-anchor="middle">OTG</text>
+  <line x1="1245" y1="560" x2="1245" y2="568" class="pin"/><text class="tl" x="1245" y="552" text-anchor="middle">HDMI</text>
+  <line x1="1300" y1="560" x2="1300" y2="568" class="pin"/><text class="tl" x="1300" y="552" text-anchor="middle">USB3.2 Type-A</text>
+  <line x1="1380" y1="560" x2="1380" y2="568" class="pin"/><text class="tl" x="1380" y="552" text-anchor="middle">LAN</text>
+
+  <!-- ============ OAK-D-Pro 相机 ============ -->
+  <rect x="1240" y="620" width="220" height="120" class="bx" rx="4"/>
+  <text class="t1" x="1350" y="645" text-anchor="middle">OAK-D-Pro 相机</text>
+  <line x1="1300" y1="620" x2="1300" y2="612" class="pin"/>
+  <line x1="1340" y1="620" x2="1340" y2="612" class="pin"/>
+  <text class="tl" x="1320" y="668" text-anchor="middle">Type-C 供电口（5V）</text>
+  <line x1="1240" y1="700" x2="1232" y2="700" class="pin"/>
+  <text class="tl" x="1252" y="704">Type-C 数据口</text>
+
+  <!-- ============ GPS ============ -->
+  <rect x="560" y="780" width="180" height="60" class="bx" rx="4"/>
+  <text class="t1" x="650" y="805" text-anchor="middle">M10 GPS</text>
+  <text class="t3" x="650" y="824" text-anchor="middle">GPS+双罗盘 · 10P 线</text>
+  <line x1="740" y1="810" x2="748" y2="810" class="pin"/>
+
+  <!-- ============ 电源走线 ============ -->
+  <!-- 电池正极干线：电池+ → 电调IN+，抽头：BEC IN+（顶部）、飞控POWER+（底部） -->
+  <line x1="130" y1="190" x2="130" y2="312" class="wr"/>
+  <line x1="130" y1="312" x2="130" y2="316" class="pin"/>
+  <polyline points="130,200 870,200 870,150 876,150" class="wr" fill="none"/>
+  <polyline points="130,240 490,240 490,665 640,665 640,604" class="wr" fill="none"/>
+  <polyline points="490,580 490,710 1160,710 1160,430 1176,430" class="wr" fill="none"/>
+  <!-- 电池负极干线 -->
+  <line x1="200" y1="190" x2="200" y2="312" class="wk"/>
+  <polyline points="200,212 890,212 890,190 876,190" class="wk" fill="none"/>
+  <polyline points="200,260 430,260 430,680 680,680 680,604" class="wk" fill="none"/>
+  <polyline points="200,280 470,280 470,725 1120,725 1120,470 1176,470" class="wk" fill="none"/>
+  <!-- BEC 输出 5V → 相机供电 -->
+  <polyline points="1148,180 1440,180 1440,600 1300,600 1300,616" class="wr" fill="none"/>
+  <polyline points="1148,220 1460,220 1460,608 1340,608 1340,616" class="wk" fill="none"/>
+  <!-- 结点 -->
+  <circle cx="130" cy="200" r="2.6" fill="#d02020"/>
+  <circle cx="130" cy="240" r="2.6" fill="#d02020"/>
+  <circle cx="490" cy="580" r="2.6" fill="#d02020"/>
+  <circle cx="200" cy="212" r="2.6" fill="#333"/>
+  <circle cx="200" cy="260" r="2.6" fill="#333"/>
+  <circle cx="200" cy="280" r="2.6" fill="#333"/>
+  <text class="t3" x="300" y="194">电池并联 → BEC 输入</text>
+  <text class="t3" x="500" y="658">POWER 2S-6S 直连</text>
+  <text class="t3" x="600" y="704">6S 直连 XT30（10~26V）</text>
+  <text class="t3" x="1200" y="174">5V → 相机供电</text>
+
+  <!-- ============ 信号走线 ============ -->
+  <!-- 电调信号 → I/O PWM OUT 1-4 -->
+  <polyline points="420,430 450,430 450,180 610,180 610,216" class="wg" fill="none"/>
+  <text class="t3" x="455" y="172">SH1.0-9P ↔ I/O PWM 1–4（M1–M4）</text>
+  <!-- TELEM2 ↔ UART1 -->
+  <polyline points="800,345 1160,345 1160,260 1240,260 1240,316" class="wb" fill="none"/>
+  <text class="t3" x="900" y="339">TELEM2 ↔ UART1（TX↔RX 交叉 + 共地）MAVLink</text>
+  <!-- CAN 可选 -->
+  <polyline points="800,362 1148,362 1148,300 1320,300 1320,316" class="wg dash" fill="none"/>
+  <text class="t3" x="1010" y="356">CAN ↔ CAN（可选）</text>
+  <!-- GPS -->
+  <polyline points="800,588 850,588 850,810 744,810" class="wg" fill="none"/>
+  <text class="t3" x="806" y="582">GPS 10P 线</text>
+  <!-- USB 数据 -->
+  <polyline points="1300,568 1300,640 1200,640 1200,700 1236,700" class="wg" fill="none"/>
+  <text class="t3" x="1308" y="628">USB3.2 数据线</text>
+  <!-- SBUS 可选 -->
+  <line x1="560" y1="212" x2="560" y2="200" class="wg dash"/>
+
+  <!-- ============ 接线要点 ============ -->
+  <text class="t1" x="60" y="885">接线要点与注意事项</text>
+  <text class="t2" x="60" y="910">1. 电调 SH1.0-9P ↔ 飞控 I/O PWM OUT 1–4：ArduPilot 用 MAIN1–4，PX4 用 FMU AUX1–4（地面站设 SERVOn_FUNCTION）；信号座自带 5V，勿与飞控两路 5V 同时供电（可挑去信号线红线）。</text>
+  <text class="t2" x="60" y="932">2. TELEM2 ↔ AllSpark UART1（GH1.25-4P）：TELEM2.TX→UART1.RX、TELEM2.RX→UART1.TX、GND 必须共地；MAVLink2，两侧波特率一致（57600 或 921600）。</text>
+  <text class="t2" x="60" y="954">3. 电池 6S 直连三路：电调 XT45 电源焊盘、飞控 POWER 口（2S-6S）、AllSpark XT30（10~26V 支持 3S-6S）；BEC 输入并联电池，输出跳线选 5V 仅供相机。</text>
+  <text class="t2" x="60" y="976">4. OAK-D-Pro 实物只有一个 Type-C 时：用 AllSpark USB3.2 Type-A（可输出 1.5A）一线同时供电+传图，BEC 5V 一路省去；有独立供电口时才按图分开接。</text>
+  <text class="t2" x="60" y="998">5. M1–M4 相线各 3 焊点接 4 个电机，转向反了就对调该电机任意两根相线；交叉未打圆点的导线互不相连；虚线 = 可选/未用接口。</text>
+</svg>
+</body>
+</html>
