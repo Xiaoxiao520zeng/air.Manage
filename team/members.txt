@@ -1,10 +1,1 @@
-# 每行填写一位成员，名称需与 --name 参数和总结文件名一致。
-# 例如：
-# 张三
-# 李四
-贾明泽
-余翔
-杨浩
-姚天宇
-梁清华
-李宇翔
+IyDmr4/ooYzloavlhpnkuIDkvY3miJDlkZjvvIzlkI3np7DpnIDkuI4gLS1uYW1lIOWPguaVsOWSjOaAu+e7k+aWh+S7tuWQjeS4gOiHtOOAggojIOS+i+Wmgu+8mgojIOW8oOS4iQojIOadjuWbmwrotL7mmI7ms70K5L2Z57+UCuadqOa1qQrlp5rlpKnlrocK5qKB5riF5Y2OCuadjuWuh+e/lAroooHmrKPnkKYK
